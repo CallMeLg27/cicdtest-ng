@@ -25,8 +25,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: ng9-github-actions-netlify-${{ env.GITHUB_REF_SLUG }}-${{ github.run_id }}-${{ github.run_number }}
-          path: ./dist/ng9-github-actions-netlify
+          name: cicdtest-ng-${{ env.GITHUB_REF_SLUG }}-${{ github.run_id }}-${{ github.run_number }}
+          path: ./dist/cicdtest-ng
 
   deploy:
     needs: build
@@ -38,7 +38,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
-          name: ng9-github-actions-netlify-${{ env.GITHUB_REF_SLUG }}-${{ github.run_id }}-${{ github.run_number }}
+          name: cicdtest-ng-${{ env.GITHUB_REF_SLUG }}-${{ github.run_id }}-${{ github.run_number }}
           path: './build'
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
