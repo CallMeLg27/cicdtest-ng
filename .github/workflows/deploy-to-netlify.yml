@@ -1,0 +1,16 @@
+name: 'My Workflow'
+
+on:
+  push:
+    branches:    
+      - 'main'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: 'Deploy to Netlify'
+    steps:
+      - uses: jsmrcaga/action-netlify-deploy@v1.1.0
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          NETLIFY_DEPLOY_TO_PROD: true
